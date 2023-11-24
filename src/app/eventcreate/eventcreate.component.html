@@ -1,0 +1,65 @@
+<div class="flex justify-content-center flex-wrap py-5">
+    <div class="surface-card p-4 shadow-2 border-round w-full lg:w-4">
+      <div class="text-center mb-5">
+          <div class="text-900 text-3xl font-medium mb-3">Witamy !</div>
+          <span class="text-600 font-medium line-height-3">Utwórz zbiórkę</span>
+      </div>
+  
+      <div>
+
+        <div class="card flex justify-content-center max-w-full">
+            <span class="p-float-label w-full mb-3">
+                <input pInputText class="w-full mb-3" id="title"/>
+                <label htmlFor="title">Tytuł</label>
+            </span>
+        </div>
+
+
+        <div class="card flex justify-content-center max-w-full">
+            <span class="p-float-label">
+                <textarea id="float-input" rows="5" cols="80" pInputTextarea class="w-full mb-3"></textarea>
+                <label for="float-input">Opis zbiórki</label>
+            </span>
+        </div>
+
+        <div class="card flex flex-column md:flex-row gap-3 mb-3">
+
+            <div class="p-inputgroup">
+                <span class="p-float-label">
+                    <input pInputText id="item"/>
+                    <label htmlFor="item">Przedmiot</label>
+                </span>
+            </div>
+        
+            <div class="p-inputgroup">
+                <span class="p-inputgroup-addon">Zł</span>
+                <input type="number" min="0" pInputText placeholder="Cena" />
+                <span class="p-inputgroup-addon">.00</span>
+            </div>
+        </div>
+        <div class="card flex flex-column md:flex-row gap-3 mb-5">
+            <div class="p-inputgroup">
+                <p-calendar [(ngModel)]="date" [showIcon]="true"></p-calendar>
+            </div>
+
+            <div class="p-inputgroup">
+                <p-calendar [(ngModel)]="date" [showIcon]="true"></p-calendar>
+            </div>
+        </div>
+
+        <label for="pic">Dodaj zdjęcie</label>
+        <div class="card flex flex-column md:flex-row gap-3 max-w-full mb-5">
+            <p-fileUpload class="w-full" mode="advanced" [auto]="true" chooseLabel="Dodaj" id="pic" accept="image/*" >
+              <ng-template pTemplate="content">
+              </ng-template>
+          </p-fileUpload>
+        </div>
+
+        <p-checkbox name="groupname" value="val1" label="Akceptuję regulamin" class="mb-4" [(ngModel)]="selectedValues"></p-checkbox>
+
+        <div class="card flex flex-column md:flex-row gap-3 max-w-full">
+            <button pButton pRipple label="Załóż" icon="pi pi-check" class="w-full" routerLink="/eventpage"></button>
+        </div>
+      </div>
+    </div>
+  </div>

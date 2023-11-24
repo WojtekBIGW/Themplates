@@ -1,0 +1,59 @@
+
+<body>
+    <div class="grid">
+        <div class="col-12 md:col-6 lg:col-4">
+            <div class="text-left p-3 font-bold">
+                <h2 class="mb-4">Prezent dla: Piotrka</h2>
+                <h3 class="mb-4">Cena: 3000zł</h3>
+                <h3>Data zakończenia:</h3>
+                <h3 class="mb-4">27.10.2023</h3>
+                <h4 class="mb-4">Opis:</h4>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus id elit libero. Vivamus eleifend
+                    venenatis augue at venenatis. Morbi sit amet sapien sem. Praesent eget tempor nibh. Duis bibendum
+                    nibh libero, sed feugiat ante consequat in. Proin id metus sed ipsum faucibus feugiat vitae
+                    porttitor erat. Cras augue mauris, malesuada vitae interdum ac, facilisis ac massa. Vestibulum nunc
+                    lorem, tempor at pretium ac, euismod eget sapien. Duis placerat, eros id bibendum pulvinar, ligula
+                    felis interdum arcu, vitae rhoncus est nulla vitae dui. Curabitur in nunc pulvinar, congue urna in,
+                    elementum tortor. Pellentesque nisi lacus, interdum eu turpis ac, sodales vestibulum lorem.
+                </p>
+            </div>
+        </div>
+        <div class="col-12 md:col-6 lg:col-4">
+            <div class="text-center p-3 font-bold">
+                <h3 class="mb-4">Po tyle się zrzucamy: 200zł</h3>
+                <p-progressBar [value]="50" class="shadow-4"></p-progressBar>
+                <div class="mt-5 mb-5">
+                    <div class="card flex justify-content-center">
+                        <p-button (click)="showDialog()" label="Wpłać"></p-button>
+                        <p-dialog header="Informacja" [(visible)]="visible" [modal]="true" [style]="{ width: '30vw' }" [draggable]="false" [resizable]="false">
+                            <p class="m-0">
+                              kliknięcie przycisku spowoduje przejście na inną stronę
+                            </p>
+                            <div class="card flex justify-content-center mt-4">
+                                <p-button icon="pi pi-check" (click)="visible = false" label="Ok" routerLink="/stronapłatności" class="shadow-4"></p-button>
+                            </div>
+                        </p-dialog>
+                    </div>
+                </div>
+                <div class="card bg-primary border-round my-4 shadow-4 flex text-center justify-content-center">
+                    <p-image src="/src/app/pics/pralka1.png" alt="Image"></p-image>
+                </div>
+            </div>
+        </div> 
+        <div class="col-12 md:col-6 lg:col-4">
+            <div class="text-center font-bold">
+                <div class="card flex justify-content-center">
+                    <p-virtualScroller [value]="items" class="border-1 surface-border border-round" [style]="{ width: '20rem' }" scrollHeight="30rem" [itemSize]="60">
+                        <ng-template pTemplate="header">Lista uczestników</ng-template>
+                        <ng-template pTemplate="item" let-item>
+                            <div class="flex align-items-center p-2 h-full" [ngClass]="{ 'surface-hover': item.index % 2 === 0 }">
+                                {{ item.label }}
+                            </div>
+                        </ng-template>
+                    </p-virtualScroller>
+                </div>
+            </div>
+        </div>    
+    </div>
+</body>
